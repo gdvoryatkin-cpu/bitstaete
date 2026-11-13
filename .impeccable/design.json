@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "source": "figma",
+  "fileKey": "9ynVouoNx4kTdFogPVQ0UM",
+  "mode": "operate",
+  "fontFamilies": ["Inter", "Roboto Mono"],
+  "tokenFile": "src/tokens/tokens.css",
+  "surfaceBrief": "DESIGN.md"
+}

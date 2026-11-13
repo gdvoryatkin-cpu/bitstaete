@@ -1,0 +1,307 @@
+:root {
+  color-scheme: light;
+
+  /* Primitive tokens — exported from the Figma ramps. */
+  --bs-ref-base-white: #ffffff;
+  --bs-ref-base-black: #000000;
+  --bs-ref-base-light-grey: #e6e6e6;
+  --bs-ref-sand-100: #f2ead6;
+  --bs-ref-sand-200: #e8dcc0;
+  --bs-ref-paper-50: #f7f3eb;
+  --bs-ref-paper-100: #f2ece2;
+  --bs-ref-paper-200: #eae3d6;
+  --bs-ref-paper-300: #dcd1be;
+  --bs-ref-ink-600: #0a3349;
+  --bs-ref-ink-700b: #123e55;
+  --bs-ref-ink-800: #04263a;
+  --bs-ref-ink-900: #001b2a;
+  --bs-ref-ink-950: #00131e;
+  --bs-ref-night-950: #070c11;
+  --bs-ref-night-900: #0d121c;
+  --bs-ref-night-850: #121926;
+  --bs-ref-night-800: #202939;
+  --bs-ref-night-700: #2b3844;
+  --bs-ref-night-650: #364152;
+  --bs-ref-night-600: #3a4854;
+  --bs-ref-night-550: #4b5565;
+  --bs-ref-linen-50: #ece7dc;
+  --bs-ref-teal-300: #8fc9de;
+  --bs-ref-teal-700: #10495e;
+  --bs-ref-gray-warm-200: #e7e5e4;
+  --bs-ref-gray-warm-300: #d7d3d0;
+  --bs-ref-gray-warm-400: #a9a29d;
+  --bs-ref-gray-warm-450: #948c85;
+  --bs-ref-gray-warm-500: #79716b;
+  --bs-ref-gray-warm-550: #6f6762;
+  --bs-ref-gray-warm-600: #57534e;
+  --bs-ref-green-300: #73e2a3;
+  --bs-ref-green-400: #3ccb7f;
+  --bs-ref-green-700: #087443;
+  --bs-ref-red-300: #fda29b;
+  --bs-ref-red-700: #b42318;
+  --bs-ref-red-800: #912018;
+  --bs-ref-yellow-400: #fac515;
+  --bs-ref-yellow-800: #854a0e;
+  --bs-ref-blue-500: #1570ef;
+  --bs-ref-blue-400: #2e90fa;
+  --bs-ref-asset-btc: #f7931a;
+  --bs-ref-asset-eth: #6580eb;
+  --bs-ref-asset-usdt: #27a17b;
+  --bs-ref-asset-usdc: #2775ca;
+  --bs-ref-asset-sol: #9945ff;
+  --bs-ref-asset-link: #2a5ada;
+  --bs-ref-asset-ada: #0033ad;
+  --bs-ref-brand-mark-start: #c35803;
+  --bs-ref-brand-mark-end: #ce8200;
+  --bs-ref-brand-wordmark-ink: #002132;
+  --bs-ref-brand-wordmark-light: #ededed;
+  --bs-ref-alpha-ink-4: #001b2a0a;
+  --bs-ref-alpha-ink-8: #001b2a14;
+  --bs-ref-alpha-ink-15: #001b2a26;
+  --bs-ref-alpha-ink-60: #001b2a99;
+  --bs-ref-alpha-white-6: #ffffff0f;
+  --bs-ref-alpha-white-10: #ffffff1a;
+  --bs-ref-alpha-black-60: #00060a99;
+  --bs-ref-alpha-teal-6: #8fc9de0f;
+  --bs-ref-alpha-teal-12: #8fc9de1f;
+  --bs-ref-alpha-blue-24: #1570ef3d;
+  --bs-ref-alpha-blue-dark-20: #2e90fa33;
+  --bs-ref-alpha-green-12: #0874431f;
+  --bs-ref-alpha-green-dark-16: #3ccb7f29;
+  --bs-ref-alpha-red-12: #b423181f;
+  --bs-ref-alpha-red-dark-16: #fda29b29;
+  --bs-ref-alpha-yellow-12: #854a0e1f;
+  --bs-ref-alpha-yellow-dark-16: #fac51529;
+
+  /* Semantic tokens — Light mode. */
+  --bs-surface-inverse: var(--bs-ref-ink-900);
+  --bs-surface-overlay: var(--bs-ref-base-white);
+  --bs-surface-page: var(--bs-ref-paper-50);
+  --bs-surface-rail: var(--bs-ref-ink-900);
+  --bs-surface-rail-active: var(--bs-ref-ink-800);
+  --bs-surface-raised: var(--bs-ref-base-white);
+  --bs-surface-raised-alt: var(--bs-ref-paper-50);
+  --bs-surface-scrim: var(--bs-ref-alpha-black-60);
+  --bs-surface-sunken: var(--bs-ref-paper-100);
+  --bs-text-primary: var(--bs-ref-ink-900);
+  --bs-text-secondary: var(--bs-ref-gray-warm-600);
+  --bs-text-muted: var(--bs-ref-gray-warm-600);
+  --bs-text-placeholder: var(--bs-ref-gray-warm-550);
+  --bs-text-on-action: var(--bs-ref-base-white);
+  --bs-text-on-inverse: var(--bs-ref-sand-100);
+  --bs-text-on-rail: var(--bs-ref-sand-100);
+  --bs-text-on-rail-muted: var(--bs-ref-gray-warm-400);
+  --bs-border-default: var(--bs-ref-paper-300);
+  --bs-border-focus: var(--bs-ref-ink-900);
+  --bs-border-focus-on-inverse: var(--bs-ref-sand-100);
+  --bs-border-focus-on-rail: var(--bs-ref-sand-100);
+  --bs-border-strong: var(--bs-ref-gray-warm-500);
+  --bs-border-subtle: var(--bs-ref-paper-200);
+  --bs-action-link: var(--bs-ref-teal-700);
+  --bs-action-link-hover: var(--bs-ref-ink-900);
+  --bs-action-primary-bg: var(--bs-ref-ink-900);
+  --bs-action-primary-bg-hover: var(--bs-ref-ink-600);
+  --bs-action-primary-bg-pressed: var(--bs-ref-ink-700b);
+  --bs-action-secondary-bg: var(--bs-ref-paper-50);
+  --bs-action-secondary-content: var(--bs-ref-ink-900);
+  --bs-state-disabled-bg: var(--bs-ref-paper-100);
+  --bs-state-disabled-content: var(--bs-ref-gray-warm-450);
+  --bs-state-hover-on-rail: var(--bs-ref-alpha-white-6);
+  --bs-state-hover-overlay: var(--bs-ref-alpha-ink-4);
+  --bs-state-pressed-on-rail: var(--bs-ref-alpha-white-10);
+  --bs-state-pressed-overlay: var(--bs-ref-alpha-ink-8);
+  --bs-state-selected-bg: var(--bs-ref-paper-300);
+  --bs-status-inflow-content: var(--bs-ref-green-700);
+  --bs-status-inflow-surface: var(--bs-ref-alpha-green-12);
+  --bs-status-info-content: var(--bs-ref-teal-700);
+  --bs-status-info-surface: var(--bs-ref-alpha-teal-12);
+  --bs-status-outflow-content: var(--bs-ref-red-800);
+  --bs-status-outflow-surface: var(--bs-ref-alpha-red-12);
+  --bs-status-pending-content: var(--bs-ref-teal-700);
+  --bs-status-pending-surface: var(--bs-ref-alpha-teal-12);
+  --bs-status-warning-content: var(--bs-ref-yellow-800);
+  --bs-status-warning-surface: var(--bs-ref-alpha-yellow-12);
+  --bs-feedback-error-content: var(--bs-ref-red-700);
+  --bs-feedback-error-surface: var(--bs-ref-alpha-red-12);
+  --bs-loading-skeleton-base: var(--bs-ref-paper-200);
+  --bs-loading-skeleton-highlight: var(--bs-ref-paper-50);
+  --bs-data-asset-ada: var(--bs-ref-asset-ada);
+  --bs-data-asset-btc: var(--bs-ref-asset-btc);
+  --bs-data-asset-eth: var(--bs-ref-asset-eth);
+  --bs-data-asset-link: var(--bs-ref-asset-link);
+  --bs-data-asset-sol: var(--bs-ref-asset-sol);
+  --bs-data-asset-usdc: var(--bs-ref-asset-usdc);
+  --bs-data-asset-usdt: var(--bs-ref-asset-usdt);
+  --bs-data-axis: var(--bs-ref-gray-warm-550);
+  --bs-data-dot-border: var(--bs-ref-alpha-ink-15);
+  --bs-data-grid: var(--bs-ref-paper-300);
+  --bs-data-neutral: var(--bs-ref-gray-warm-500);
+  --bs-data-series-compare: var(--bs-ref-gray-warm-500);
+  --bs-data-series-fill: var(--bs-ref-alpha-blue-24);
+  --bs-data-series-line: var(--bs-ref-blue-500);
+  --bs-brand-mark-start: var(--bs-ref-brand-mark-start);
+  --bs-brand-mark-end: var(--bs-ref-brand-mark-end);
+  --bs-brand-wordmark-ink: var(--bs-ref-brand-wordmark-ink);
+  --bs-brand-wordmark-light: var(--bs-ref-brand-wordmark-light);
+
+  /* Component and dimension tokens. */
+  --bs-space-2: 2px;
+  --bs-space-4: 4px;
+  --bs-space-8: 8px;
+  --bs-space-12: 12px;
+  --bs-space-16: 16px;
+  --bs-space-20: 20px;
+  --bs-space-24: 24px;
+  --bs-space-32: 32px;
+  --bs-radius-md: 8px;
+  --bs-radius-lg: 12px;
+  --bs-radius-xl: 16px;
+  --bs-radius-pill: 999px;
+  --bs-stroke-hairline: 1px;
+  --bs-stroke-focus: 2px;
+  --bs-shell-rail-width: 220px;
+  --bs-shell-drawer-width: 300px;
+  --bs-shell-topbar-height: 64px;
+  --bs-shell-content-max: 1240px;
+  --bs-nav-item-height: 44px;
+  --bs-icon-button-hit: 44px;
+  --bs-icon-button-visual: 40px;
+  --bs-tabbar-min-height: 80px;
+  --bs-panel-radius: var(--bs-radius-xl);
+  --bs-panel-border: var(--bs-border-subtle);
+  --bs-shadow-overlay: 0 8px 8px -4px var(--bs-ref-alpha-ink-4), 0 20px 24px -4px var(--bs-ref-alpha-ink-8);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --bs-surface-inverse: var(--bs-ref-linen-50);
+    --bs-surface-overlay: var(--bs-ref-night-800);
+    --bs-surface-page: var(--bs-ref-night-900);
+    --bs-surface-rail-active: var(--bs-ref-ink-700b);
+    --bs-surface-raised: var(--bs-ref-night-850);
+    --bs-surface-raised-alt: var(--bs-ref-night-800);
+    --bs-surface-sunken: var(--bs-ref-night-900);
+    --bs-text-primary: var(--bs-ref-linen-50);
+    --bs-text-secondary: var(--bs-ref-gray-warm-300);
+    --bs-text-muted: var(--bs-ref-gray-warm-400);
+    --bs-text-placeholder: var(--bs-ref-gray-warm-400);
+    --bs-text-on-action: var(--bs-ref-ink-900);
+    --bs-text-on-inverse: var(--bs-ref-ink-900);
+    --bs-text-on-rail: var(--bs-ref-linen-50);
+    --bs-border-default: var(--bs-ref-night-650);
+    --bs-border-focus: var(--bs-ref-sand-200);
+    --bs-border-focus-on-inverse: var(--bs-ref-ink-900);
+    --bs-border-strong: var(--bs-ref-night-550);
+    --bs-border-subtle: var(--bs-ref-night-800);
+    --bs-action-link: var(--bs-ref-teal-300);
+    --bs-action-link-hover: var(--bs-ref-base-light-grey);
+    --bs-action-primary-bg: var(--bs-ref-linen-50);
+    --bs-action-primary-bg-hover: var(--bs-ref-gray-warm-200);
+    --bs-action-primary-bg-pressed: var(--bs-ref-gray-warm-300);
+    --bs-action-secondary-bg: var(--bs-ref-night-700);
+    --bs-action-secondary-content: var(--bs-ref-linen-50);
+    --bs-state-disabled-bg: var(--bs-ref-night-800);
+    --bs-state-hover-overlay: var(--bs-ref-alpha-teal-6);
+    --bs-state-pressed-overlay: var(--bs-ref-alpha-teal-12);
+    --bs-state-selected-bg: var(--bs-ref-night-650);
+    --bs-status-inflow-content: var(--bs-ref-green-300);
+    --bs-status-inflow-surface: var(--bs-ref-alpha-green-dark-16);
+    --bs-status-info-content: var(--bs-ref-teal-300);
+    --bs-status-info-surface: var(--bs-ref-alpha-teal-12);
+    --bs-status-outflow-content: var(--bs-ref-red-300);
+    --bs-status-outflow-surface: var(--bs-ref-alpha-red-dark-16);
+    --bs-status-pending-content: var(--bs-ref-teal-300);
+    --bs-status-pending-surface: var(--bs-ref-alpha-teal-12);
+    --bs-status-warning-content: var(--bs-ref-yellow-400);
+    --bs-status-warning-surface: var(--bs-ref-alpha-yellow-dark-16);
+    --bs-feedback-error-content: var(--bs-ref-red-300);
+    --bs-feedback-error-surface: var(--bs-ref-alpha-red-dark-16);
+    --bs-loading-skeleton-base: var(--bs-ref-night-700);
+    --bs-loading-skeleton-highlight: var(--bs-ref-night-600);
+    --bs-data-axis: var(--bs-ref-gray-warm-400);
+    --bs-data-grid: var(--bs-ref-night-650);
+    --bs-data-neutral: var(--bs-ref-gray-warm-400);
+    --bs-data-series-compare: var(--bs-ref-gray-warm-400);
+    --bs-data-series-fill: var(--bs-ref-alpha-blue-dark-20);
+    --bs-data-series-line: var(--bs-ref-blue-400);
+  }
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bs-surface-inverse: var(--bs-ref-linen-50);
+  --bs-surface-overlay: var(--bs-ref-night-800);
+  --bs-surface-page: var(--bs-ref-night-900);
+  --bs-surface-rail-active: var(--bs-ref-ink-700b);
+  --bs-surface-raised: var(--bs-ref-night-850);
+  --bs-surface-raised-alt: var(--bs-ref-night-800);
+  --bs-surface-sunken: var(--bs-ref-night-900);
+  --bs-text-primary: var(--bs-ref-linen-50);
+  --bs-text-secondary: var(--bs-ref-gray-warm-300);
+  --bs-text-muted: var(--bs-ref-gray-warm-400);
+  --bs-text-placeholder: var(--bs-ref-gray-warm-400);
+  --bs-text-on-action: var(--bs-ref-ink-900);
+  --bs-text-on-inverse: var(--bs-ref-ink-900);
+  --bs-text-on-rail: var(--bs-ref-linen-50);
+  --bs-border-default: var(--bs-ref-night-650);
+  --bs-border-focus: var(--bs-ref-sand-200);
+  --bs-border-focus-on-inverse: var(--bs-ref-ink-900);
+  --bs-border-strong: var(--bs-ref-night-550);
+  --bs-border-subtle: var(--bs-ref-night-800);
+  --bs-action-link: var(--bs-ref-teal-300);
+  --bs-action-link-hover: var(--bs-ref-base-light-grey);
+  --bs-action-primary-bg: var(--bs-ref-linen-50);
+  --bs-action-primary-bg-hover: var(--bs-ref-gray-warm-200);
+  --bs-action-primary-bg-pressed: var(--bs-ref-gray-warm-300);
+  --bs-action-secondary-bg: var(--bs-ref-night-700);
+  --bs-action-secondary-content: var(--bs-ref-linen-50);
+  --bs-state-disabled-bg: var(--bs-ref-night-800);
+  --bs-state-hover-overlay: var(--bs-ref-alpha-teal-6);
+  --bs-state-pressed-overlay: var(--bs-ref-alpha-teal-12);
+  --bs-state-selected-bg: var(--bs-ref-night-650);
+  --bs-status-inflow-content: var(--bs-ref-green-300);
+  --bs-status-inflow-surface: var(--bs-ref-alpha-green-dark-16);
+  --bs-status-info-content: var(--bs-ref-teal-300);
+  --bs-status-info-surface: var(--bs-ref-alpha-teal-12);
+  --bs-status-outflow-content: var(--bs-ref-red-300);
+  --bs-status-outflow-surface: var(--bs-ref-alpha-red-dark-16);
+  --bs-status-pending-content: var(--bs-ref-teal-300);
+  --bs-status-pending-surface: var(--bs-ref-alpha-teal-12);
+  --bs-status-warning-content: var(--bs-ref-yellow-400);
+  --bs-status-warning-surface: var(--bs-ref-alpha-yellow-dark-16);
+  --bs-feedback-error-content: var(--bs-ref-red-300);
+  --bs-feedback-error-surface: var(--bs-ref-alpha-red-dark-16);
+  --bs-loading-skeleton-base: var(--bs-ref-night-700);
+  --bs-loading-skeleton-highlight: var(--bs-ref-night-600);
+  --bs-data-axis: var(--bs-ref-gray-warm-400);
+  --bs-data-grid: var(--bs-ref-night-650);
+  --bs-data-neutral: var(--bs-ref-gray-warm-400);
+  --bs-data-series-compare: var(--bs-ref-gray-warm-400);
+  --bs-data-series-fill: var(--bs-ref-alpha-blue-dark-20);
+  --bs-data-series-line: var(--bs-ref-blue-400);
+}
+
+/* Figma text styles. */
+.bs-type-amount-hero { font-size: 40px; line-height: 44px; font-weight: 600; letter-spacing: -0.02em; }
+.bs-type-amount-unit { font-size: 16px; line-height: 24px; font-weight: 500; }
+.bs-type-amount-row { font-size: 14px; line-height: 20px; font-weight: 600; }
+.bs-type-amount-secondary { font-size: 14px; line-height: 20px; font-weight: 400; }
+.bs-type-heading-screen { font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: -0.01em; }
+.bs-type-heading-card { font-size: 16px; line-height: 24px; font-weight: 600; }
+.bs-type-body-large { font-size: 16px; line-height: 24px; font-weight: 400; }
+.bs-type-body { font-size: 14px; line-height: 20px; font-weight: 400; }
+.bs-type-button { font-size: 14px; line-height: 20px; font-weight: 500; }
+.bs-type-button-large { font-size: 16px; line-height: 24px; font-weight: 500; }
+.bs-type-nav-item { font-size: 15px; line-height: 20px; font-weight: 500; }
+.bs-type-row-title { font-size: 14px; line-height: 20px; font-weight: 600; }
+.bs-type-label { font-size: 12px; line-height: 16px; font-weight: 500; }
+.bs-type-column-head { font-size: 12px; line-height: 16px; font-weight: 400; }
+.bs-type-data-axis { font-size: 12px; line-height: 16px; font-weight: 400; }
+.bs-type-data-ticker { font-size: 12px; line-height: 16px; font-weight: 400; letter-spacing: 0.01em; }
+.bs-type-identifier { font-family: 'Roboto Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 400; }
+.bs-tabular { font-variant-numeric: tabular-nums lining-nums; }
+
+@media (max-width: 767px) {
+  .bs-type-amount-hero { font-size: 28px; line-height: 32px; letter-spacing: -0.015em; }
+}
