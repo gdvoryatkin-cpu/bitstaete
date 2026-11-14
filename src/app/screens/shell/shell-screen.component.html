@@ -1,0 +1,60 @@
+<div class="app-shell">
+  <a class="skip-link" href="#main-content">{{ 'a11y.skipToContent' | translate }}</a>
+
+  <bs-nav-rail
+    [items]="allNavigation"
+    [activePath]="activePath()"
+    [navigationLabel]="copy.navigation"
+    [closeLabel]="copy.closeNavigation"
+    [signOutLabel]="copy.signOut"
+    [brandAlt]="copy.brand"
+    (navigate)="navigate($event)"
+  />
+
+  <div class="app-shell__workspace">
+    <div #menuButton>
+      <bs-top-bar
+        [clientName]="copy.clientName"
+        [organisation]="copy.organisation"
+        [openMenuLabel]="copy.navigation"
+        [notificationsLabel]="copy.notifications"
+        [clientMenuLabel]="copy.clientMenu"
+        (openMenu)="openDrawer()"
+      />
+    </div>
+    <main id="main-content" class="app-shell__content" tabindex="-1">
+      <router-outlet />
+    </main>
+  </div>
+
+  <bs-tab-bar
+    [items]="primaryNavigation()"
+    [activePath]="activePath()"
+    [navigationLabel]="copy.navigation"
+    (navigate)="navigate($event)"
+  />
+
+  @if (drawerOpen()) {
+    <div class="drawer-layer" role="presentation" (mousedown)="closeFromScrim($event)">
+      <div
+        #drawer
+        class="drawer-layer__panel"
+        role="dialog"
+        aria-modal="true"
+        [attr.aria-label]="copy.navigation"
+      >
+        <bs-nav-rail
+          variant="drawer"
+          [items]="allNavigation"
+          [activePath]="activePath()"
+          [navigationLabel]="copy.navigation"
+          [closeLabel]="copy.closeNavigation"
+          [signOutLabel]="copy.signOut"
+          [brandAlt]="copy.brand"
+          (navigate)="navigate($event)"
+          (closeRequested)="closeDrawer()"
+        />
+      </div>
+    </div>
+  }
+</div>

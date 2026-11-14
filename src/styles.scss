@@ -1,0 +1,88 @@
+@use '@fontsource/inter/400.css' as inter400;
+@use '@fontsource/inter/500.css' as inter500;
+@use '@fontsource/inter/600.css' as inter600;
+@import './tokens/tokens.css';
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  background: var(--bs-surface-page);
+  scroll-padding-top: calc(var(--bs-shell-topbar-height) + env(safe-area-inset-top));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--bs-surface-page);
+  color: var(--bs-text-primary);
+  font-family: Inter, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+button,
+input,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: var(--bs-action-link);
+  text-underline-offset: 3px;
+}
+
+::selection {
+  background: var(--bs-state-selected-bg);
+  color: var(--bs-text-primary);
+}
+
+:focus-visible {
+  outline: var(--bs-stroke-focus) solid var(--bs-border-focus);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bs-surface-sunken);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--bs-surface-sunken);
+  border-radius: var(--bs-radius-pill);
+  background: var(--bs-border-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

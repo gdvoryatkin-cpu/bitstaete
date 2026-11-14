@@ -1,0 +1,14 @@
+<nav class="tab-bar" [attr.aria-label]="navigationLabel()">
+  @for (item of items(); track item.path) {
+    <button
+      class="tab-item"
+      [class.tab-item--active]="activePath() === item.path"
+      type="button"
+      (click)="navigate.emit(item.path)"
+      [attr.aria-current]="activePath() === item.path ? 'page' : null"
+    >
+      <span class="tab-item__pill"><bs-icon [name]="item.icon" [size]="22" /></span>
+      <span>{{ item.label }}</span>
+    </button>
+  }
+</nav>

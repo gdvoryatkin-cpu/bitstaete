@@ -1,0 +1,44 @@
+<aside
+  class="nav-rail"
+  [class.nav-rail--desktop]="variant() === 'desktop'"
+  [class.nav-rail--drawer]="variant() === 'drawer'"
+  [attr.aria-label]="navigationLabel()"
+>
+  <div class="nav-rail__head">
+    <img class="nav-rail__logo" src="/assets/figma/logo-full.png" [alt]="brandAlt()" />
+    @if (variant() === 'drawer') {
+      <button
+        class="icon-button icon-button--rail"
+        type="button"
+        (click)="closeRequested.emit()"
+        [attr.aria-label]="closeLabel()"
+      >
+        <bs-icon name="close" />
+      </button>
+    }
+  </div>
+
+  <nav class="nav-rail__items">
+    @for (item of items(); track item.path) {
+      <button
+        class="nav-item"
+        [class.nav-item--active]="activePath() === item.path"
+        type="button"
+        (click)="select(item.path)"
+        [attr.aria-current]="activePath() === item.path ? 'page' : null"
+      >
+        <bs-icon [name]="item.icon" />
+        <span>{{ item.label }}</span>
+      </button>
+    }
+  </nav>
+
+  <div class="nav-rail__spacer"></div>
+
+  <div class="nav-rail__foot">
+    <button class="nav-item nav-item--button" type="button" (click)="signOut.emit()">
+      <bs-icon name="sign-out" />
+      <span>{{ signOutLabel() }}</span>
+    </button>
+  </div>
+</aside>

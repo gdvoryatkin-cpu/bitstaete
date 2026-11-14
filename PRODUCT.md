@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Vite, React, TypeScript, React Router, plain CSS, and Vercel. This stack is explicitly required by the project brief.
+Angular 22 with standalone components, OnPush change detection, Signals, Angular Router, strict TypeScript, component SCSS, framework-agnostic CSS custom-property tokens, and Vercel. The structure is intentionally portable into an existing Angular portal, including older NgModule-based applications.
 
 ## Users
 
@@ -31,6 +31,8 @@ Clients use one responsive URL. They sign in with an email code, move between fi
 - Figma file `9ynVouoNx4kTdFogPVQ0UM` is the visual authority.
 - `reference/bitstaete-prototype.html` is the authority for behavior, mock data, and non-auth mobile layouts.
 - Screens are composed from reusable elements and panels, with responsive behavior built into each component.
+- UI elements and panels accept data through `input()` and report intent through `output()`; they do not depend on routing, services, or HTTP.
+- Mock data is hidden behind InjectionToken-backed Observable APIs so a real HTTP client can replace it without component changes.
 
 ## Brand Commitments
 

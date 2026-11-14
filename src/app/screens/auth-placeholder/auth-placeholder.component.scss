@@ -1,0 +1,30 @@
+.auth-placeholder {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  align-content: center;
+  gap: var(--bs-space-32);
+  padding: var(--bs-space-24);
+  background: var(--bs-surface-page);
+}
+
+.auth-placeholder > img {
+  width: 180px;
+}
+
+.auth-placeholder__card {
+  width: min(100%, 424px);
+  border: var(--bs-stroke-hairline) solid var(--bs-border-subtle);
+  border-radius: var(--bs-radius-xl);
+  background: var(--bs-surface-raised);
+  padding: var(--bs-space-32);
+}
+
+h1 {
+  margin: 0 0 var(--bs-space-8);
+}
+
+p {
+  margin: 0;
+  color: var(--bs-text-secondary);
+}

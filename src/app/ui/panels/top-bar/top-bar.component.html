@@ -1,0 +1,38 @@
+<header class="top-bar">
+  <div class="top-bar__mobile-start">
+    <button
+      class="icon-button"
+      type="button"
+      (click)="openMenu.emit()"
+      [attr.aria-label]="openMenuLabel()"
+    >
+      <bs-icon name="menu" />
+    </button>
+    <img class="top-bar__mark" src="/assets/figma/logo-icon.svg" alt="" />
+  </div>
+
+  <div class="top-bar__spacer"></div>
+
+  <button
+    class="icon-button top-bar__notifications"
+    type="button"
+    (click)="openNotifications.emit()"
+    [attr.aria-label]="notificationsLabel()"
+  >
+    <bs-icon name="bell" />
+  </button>
+  <span class="top-bar__divider" aria-hidden="true"></span>
+  <button
+    class="client-switcher"
+    type="button"
+    (click)="openClientMenu.emit()"
+    [attr.aria-label]="clientMenuLabel()"
+  >
+    <span class="client-switcher__avatar" aria-hidden="true">{{ initials() }}</span>
+    <span class="client-switcher__copy">
+      <strong>{{ clientName() }}</strong>
+      <small>{{ organisation() }}</small>
+    </span>
+    <bs-icon name="chevron-down" [size]="16" />
+  </button>
+</header>

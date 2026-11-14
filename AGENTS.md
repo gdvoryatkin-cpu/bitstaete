@@ -21,23 +21,25 @@ A clickable **demonstration prototype** of the redesigned BitStaete client porta
 
 ## Stack and commands
 
-Vite + React + TypeScript + React Router, plain CSS, Vercel (SPA rewrite in `vercel.json`).
+Angular 22, standalone components, OnPush change detection, Signals, Angular Router, strict TypeScript, component SCSS, and Vercel (Angular preset plus SPA rewrite in `vercel.json`).
 
 ```
 npm install
-npm run dev      # local preview
+npm start        # local preview
 npm run build    # must pass before you finish
 npm run lint     # must pass before you finish
+npm run format:check
 ```
 
 ## Structure
 
 - `src/tokens/tokens.css` — primitive `--bs-ref-*` → semantic `--bs-*` → component tokens, Light and Dark.
-- `src/components/elements/` — smallest building blocks.
-- `src/components/panels/` — sections and shell parts built from elements.
-- `src/screens/` — screens assembled from panels.
-- `src/i18n/` — all UI copy via `t('key')`.
-- `src/styles/` — global and shell CSS.
+- `src/app/ui/elements/` — smallest, dumb building blocks.
+- `src/app/ui/panels/` — dumb sections and shell parts built from elements.
+- `src/app/screens/` — thin screens that assemble panels and may use routing/services.
+- `src/app/data/` — models, Observable service contracts, InjectionTokens, and mock implementations.
+- `src/app/i18n/` — `TranslatePipe`, `TranslationService`, and `en.json`.
+- `src/styles.scss` — global browser styling only; component styles stay beside components.
 
 ## Rules
 
@@ -46,6 +48,10 @@ npm run lint     # must pass before you finish
 - Fixed slots: a panel keeps roughly the same size across loading / empty / error / ready states; content adapts to the slot.
 - No raw colour values in component CSS — tokens only.
 - All visible copy through i18n keys. EUR only, Dutch number formatting, English copy.
+- All components are standalone and use OnPush. Use Signals for local component state.
+- UI elements and panels receive data only through `input()` and emit intent only through `output()`; no services, routing, or HTTP inside them.
+- Screens obtain data only through services in `src/app/data/`. Mock APIs must remain replaceable through InjectionTokens.
+- Document every public component input/output and its Figma node ID in a short code comment.
 - No backend, no real auth, no analytics, no external runtime requests. Theme is the only `localStorage` value.
 - Accessibility: visible focus, 44px touch targets, AA contrast in both themes, reduced motion, semantic headings.
 - When you spot a defect, fix it now rather than noting it for later.
@@ -61,7 +67,7 @@ npm run lint     # must pass before you finish
 
 **At the end of every finished block of work**
 
-1. `npm run build` and `npm run lint` pass.
+1. `npm run build`, `npm run lint`, and `npm run format:check` pass.
 2. Update `docs/HANDOFF.md`: Done / Decisions / Next step / Open questions. Write it so the other agent can continue without this conversation.
 3. Commit with a clear message.
 4. Push to GitHub only when Gleb asks (pushing to `main` updates the Vercel demo).
